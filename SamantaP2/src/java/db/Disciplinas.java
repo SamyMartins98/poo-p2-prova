@@ -26,7 +26,7 @@ public class Disciplinas {
         ArrayList<Disciplinas> list = new ArrayList<>();
         Connection con = DbListener.getConnection();
         Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * from disciplinas ORDER BY name");
+        ResultSet rs = stmt.executeQuery("SELECT * from disciplinas ORDER BY nome");
         while(rs.next()){
             list.add(new Disciplinas(
                     rs.getString("nome"),
@@ -46,7 +46,7 @@ public class Disciplinas {
     public static void addDisciplina(String nome, String diaDaSemana, String horario, int qtAulas, Double notap1, Double notap2) throws Exception{
         Connection con = DbListener.getConnection();
         String sql = "INSERT INTO disciplinas(nome, diadasemana, horario, qtaulas, notap1, notap2)"
-                + "VALUES(?, ?)";
+                + "VALUES(?, ?, ?, ?,?, ?)";
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setString(1, nome);
         stmt.setString(2, diaDaSemana);
@@ -61,7 +61,7 @@ public class Disciplinas {
     
     public static void updateDisciplina(String nome, Double notap1, Double notap2) throws Exception{
         Connection con = DbListener.getConnection();
-        String sql = "UPDATE disciplinas set notap1 = ?, notap2 = ? WHERE nome = ?)";
+        String sql = "UPDATE disciplinas set notap1 = ?, notap2 = ? WHERE nome = ?";
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setDouble(1, notap1);
         stmt.setDouble(2, notap2);
