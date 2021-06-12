@@ -41,7 +41,7 @@ public class DbListener implements ServletContextListener {
             String sql = "CREATE TABLE IF NOT EXISTS users("
                     + "nome VARCHAR(200) NOT NULL,"
                     + "login VARCHAR(50) UNIQUE NOT NULL,"
-                    + "password_hash LONG"
+                    + "password_hash VARCHAR(50)"
                     + ")";
             stmt.execute(sql);
             if(User.getUsers().isEmpty()){
