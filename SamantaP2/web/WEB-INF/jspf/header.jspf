@@ -13,7 +13,7 @@
                 headerError = "Login ou passoword incorreto(s)";
             }else{
                 session.setAttribute("user.login", loginUser.getLogin());
-                session.setAttribute("user.name", loginUser.getName());
+                session.setAttribute("user.nome", loginUser.getNome());
                 response.sendRedirect(request.getRequestURI());
             }
         }catch(Exception ex){
@@ -21,7 +21,7 @@
         }
     }else if(request.getParameter("session.logout")!=null){
         session.removeAttribute("user.login");
-        session.removeAttribute("user.name");
+        session.removeAttribute("user.nome");
         response.sendRedirect(request.getRequestURI());
     }
 %>
@@ -47,7 +47,7 @@
 <%}else{%>
     <form method="post">
         Bem vindo, <b>
-            <a href="my-profile.jsp"><%= session.getAttribute("user.name") %></a>
+            <a href="my-profile.jsp"><%= session.getAttribute("user.nome") %></a>
         </b>
         <input type="submit" name="session.logout" value="Sair"/>
         | <a href="index.jsp">INÍCIO</a>
