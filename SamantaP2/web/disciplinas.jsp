@@ -14,10 +14,8 @@
         String diaDaSemana = request.getParameter("diadasemana");
         String horario = request.getParameter("horario");
         int qtAulas = Integer.parseInt(request.getParameter("qtaulas"));
-        Double notap1 = Double.parseDouble(request.getParameter("notap1"));
-        Double notap2 = Double.parseDouble(request.getParameter("notap2"));
         try{
-            Disciplinas.addDisciplina(nome, diaDaSemana, horario, qtAulas, notap1, notap2);
+            Disciplinas.addDisciplina(nome, diaDaSemana, horario, qtAulas, 0.0, 0.0);
             response.sendRedirect(request.getRequestURI());
         }catch(Exception ex){
             requestError = "Falha na criação do disciplina ["+ex.getMessage()+"]";
@@ -66,8 +64,6 @@
                 <br/>Dia da semana <br/><input type="text" name="diadasemana"/>
                 <br/>Horário:<br/><input type="text" name="horario"/>
                 <br/>Quantidade de aulas: <br/><input type="text" name="qtaulas"/>
-                <br/>Nota P1: <br/><input type="text" name="notap1"/>
-                <br/>Nota P2: <br/><input type="text" name="notap2"/>
                 <br/><br/>
                 <input type="submit" name="add" value="Adicionar"/>
             </form>
