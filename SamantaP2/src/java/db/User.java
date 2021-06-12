@@ -14,7 +14,7 @@ import web.DbListener;
  * @author MARCOSESTEVAODASILVA
  */
 public class User {
-    private String name;
+    private String nome;
     private String login;
     
     public static ArrayList<User> getUsers() throws Exception{
@@ -24,7 +24,7 @@ public class User {
         ResultSet rs = stmt.executeQuery("SELECT * from users");
         while(rs.next()){
             list.add(new User(
-                    rs.getString("name")
+                    rs.getString("nome")
                     , rs.getString("login")
             ));
         }
@@ -44,7 +44,7 @@ public class User {
         ResultSet rs = stmt.executeQuery();
         if(rs.next()){
             user = new User(
-                    rs.getString("name")
+                    rs.getString("nome")
                     , rs.getString("login")
             );
         }
@@ -54,13 +54,13 @@ public class User {
         return user;
     }
     
-    public static void addUser(String login, String name, String password) throws Exception{
+    public static void addUser(String login, String nome, String password) throws Exception{
         Connection con = DbListener.getConnection();
-        String sql = "INSERT INTO users(login, name, password_hash)"
+        String sql = "INSERT INTO users(login, nome, password_hash)"
                 + "VALUES(?, ?, ?, ?)";
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setString(1, login);
-        stmt.setString(2, name);
+        stmt.setString(2, nome);
         stmt.setLong(3, password.hashCode());
         stmt.execute();
         stmt.close();
@@ -88,8 +88,8 @@ public class User {
         con.close();
     }
     
-    public User(String name, String login) {
-        this.name = name;
+    public User(String nome, String login) {
+        this.nome = nome;
         this.login = login;
     }
 
@@ -102,11 +102,11 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String nome) {
+        this.nome = nome;
     }
     
 }
