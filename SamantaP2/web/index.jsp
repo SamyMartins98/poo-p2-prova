@@ -13,6 +13,7 @@
         <title>Ínicio</title>
     </head>
     <body>
+        <%@include file="WEB-INF/jspf/header.jspf" %>
         <h1>SAMANTA COSTA MARTINS DE OLIVEIRA</h1>
         <h2>RA: 1290481822035</h2>
         <h3>Semestre de ingresso na Fatec: 02/2018</h3>
