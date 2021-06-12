@@ -5,6 +5,7 @@
  */
 package web;
 
+import db.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -14,7 +15,7 @@ import javax.servlet.ServletContextListener;
 /**
  * Web application lifecycle listener.
  *
- * @author MARCOSESTEVAODASILVA
+ * @author SAMANTA
  */
 public class DbListener implements ServletContextListener {
 
