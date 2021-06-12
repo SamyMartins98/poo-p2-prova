@@ -25,7 +25,7 @@
         response.sendRedirect(request.getRequestURI());
     }
 %>
-<h1>MyFinance$</h1>
+<h1>P2 - POO</h1>
 <%if(DbListener.exception != null){%>
     <div style="color: red">
         Um erro ocorreu no passo '<%= DbListener.step %>'
@@ -51,7 +51,7 @@
         </b>
         <input type="submit" name="session.logout" value="Sair"/>
         | <a href="index.jsp">INÍCIO</a>
-        | <a href="discilinas.jsp">DISCIPLINAS</a>
+        | <a href="disciplinas.jsp">DISCIPLINAS</a>
     </form>
 <%}%>
 <hr/>
