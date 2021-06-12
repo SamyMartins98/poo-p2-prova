@@ -34,13 +34,13 @@ public class User {
         return list;
     }
     
-    public static User getUser(String login, String password) throws Exception{
+    public static User getUser(String login, String pass) throws Exception{
         User user = null;
         Connection con = DbListener.getConnection();
         String sql = "SELECT * from users WHERE login=? and password_hash=?";
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setString(1, login);
-        stmt.setString(2, password);
+        stmt.setLong(2, pass.hashCode());
         ResultSet rs = stmt.executeQuery();
         if(rs.next()){
             user = new User(
@@ -61,7 +61,7 @@ public class User {
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setString(1, login);
         stmt.setString(2, nome);
-        stmt.setString(3, password);
+        stmt.setLong(3, password.hashCode());
         stmt.execute();
         stmt.close();
         con.close();
@@ -72,6 +72,17 @@ public class User {
         String sql = "DELETE FROM users WHERE login = ?";
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setString(1, login);
+        stmt.execute();
+        stmt.close();
+        con.close();
+    }
+    
+    public static void changePassword(String login, String newPassword) throws Exception{
+        Connection con = DbListener.getConnection();
+        String sql = "UPDATE users SET password_hash=? WHERE login = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setLong(1, newPassword.hashCode());
+        stmt.setString(2, login);
         stmt.execute();
         stmt.close();
         con.close();
