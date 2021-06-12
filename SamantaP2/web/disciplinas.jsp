@@ -77,7 +77,7 @@
                 <th>Qt. Aulas</th>
                 <th>Nota P1</th>
                 <th>Nota P2</th>
-                <th>Descrição</th>
+                <th>Alteração</th>
                 <th>Exclusão</th>
             </tr>
             <%for(Disciplinas disciplina: Disciplinas.getDisciplinas()){%>
@@ -91,8 +91,8 @@
                     <td>
                         <form method="post">
                             <input type="hidden" name="nome" value="<%= disciplina.getNome()%>"/>
-                            <input type="text" name="notap1" />
-                            <input type="text" name="notap2" />
+                            <input type="text" name="notap1" placeholder="Nota P1" />
+                            <input type="text" name="notap2" placeholder="Nota P2"/>
                             <input type="submit" name="update" value="Alterar"/>
                         </form>
                     </td>
