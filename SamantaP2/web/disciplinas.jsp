@@ -36,7 +36,7 @@
             Disciplinas.updateDisciplina(nome, notap1, notap2);
             response.sendRedirect(request.getRequestURI());
         }catch(Exception ex){
-            requestError = "Falha na exclusão do disciplina ["+ex.getMessage()+"]";
+            requestError = "Falha na alteração do disciplina ["+ex.getMessage()+"]";
         }
     }
 %>
