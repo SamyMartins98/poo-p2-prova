@@ -52,7 +52,7 @@
                 Erro ao manipular usuário: <%= requestError %>
             </div>
         <%}%>
-        <h2>Categorias</h2>
+        <h2>Disciplinas</h2>
         <% String login = (String) session.getAttribute("user.login");%>
         <%if(login == null){%>
             <div>Esta página é restrita a usuários logados.</div>
@@ -84,10 +84,10 @@
                 <tr>
                     <td><%= disciplina.getNome()%></td>
                     <td><%= disciplina.getDiaDaSemana()%></td>
-                    <td><%= disciplina.getDiaDaSemana()%></td>
-                    <td><%= disciplina.getDiaDaSemana()%></td>
-                    <td><%= disciplina.getDiaDaSemana()%></td>
-                    <td><%= disciplina.getDiaDaSemana()%></td>
+                    <td><%= disciplina.getHorario()%></td>
+                    <td><%= disciplina.getQtAulas()%></td>
+                    <td><%= disciplina.getNotap1()%></td>
+                    <td><%= disciplina.getNotap2()%></td>
                     <td>
                         <form method="post">
                             <input type="hidden" name="nome" value="<%= disciplina.getNome()%>"/>
