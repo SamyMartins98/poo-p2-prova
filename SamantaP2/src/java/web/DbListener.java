@@ -46,11 +46,11 @@ public class DbListener implements ServletContextListener {
             stmt.execute(sql);
             if(User.getUsers().isEmpty()){
                 step = "Inserindo usuários";
-                sql = "INSERT INTO users(name, login, password_hash) "
-                    + "VALUES('Administrador', 'admin', '"+("1234".hashCode())+")";
+                sql = "INSERT INTO users(nome, login, password_hash) "
+                    + "VALUES('Administrador', 'admin', '1234')";
                 stmt.execute(sql);
-                sql = "INSERT INTO users(name, login, password_hash) "
-                    + "VALUES('Fulano da Silva', 'fulano', '"+("1234".hashCode())+")";
+                sql = "INSERT INTO users(nome, login, password_hash) "
+                    + "VALUES('Fulano da Silva', 'fulano', '1234')";
                 stmt.execute(sql);
             }
             
